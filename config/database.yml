@@ -1,0 +1,18 @@
+
+development: &common_settings
+  adapter: postgresql
+  encoding: unicode
+  database: idonethis_development
+  pool: 5
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: idonethis_test
+  pool: 5
+
+production:
+  <<: *common_settings
+
+cucumber:
+  <<: *test
