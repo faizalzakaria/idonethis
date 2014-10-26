@@ -28,18 +28,21 @@ class Users::TasksController < Users::BaseController
     @task = @user.tasks.new(task_params)
     verify_task_belongs_to_user do
       @task.save
+      flash[:notice] = "Successfully created the task"
       redirect_to tasks_url
     end
   end
 
   def update
     @task.update(task_params)
-    respond_with(@user, @task)
+    flash[:notice] = "Successfully updated the task"
+    redirect_to tasks_url
   end
 
   def destroy
     @task.destroy
-    respond_with(@user, @task)
+    flash[:notice] = "Successfully destroyed the task"
+    redirect_to tasks_url
   end
 
   private
