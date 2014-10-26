@@ -11,4 +11,9 @@
 
 class Task < ActiveRecord::Base
   belongs_to :user
+
+  def self.filter_last_n_day(count)
+    day = Date.today - count
+    Task.where("created_at >= ? AND created_at <= ?", day, day + 1)
+  end
 end

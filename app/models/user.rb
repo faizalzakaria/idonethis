@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  utc_offset             :integer
+#  username               :string(255)      default("")
 #
 
 class User < ActiveRecord::Base
@@ -24,4 +26,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks, dependent: :destroy
+
+  validates :username,
+            exclusion: { in: %w(admin superuser) },
+            presence: true,
+            format: { :without => /\s/ },
+            uniqueness: true
+
 end

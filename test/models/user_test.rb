@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  utc_offset             :integer
+#  username               :string(255)      default("")
 #
 
 require 'test_helper'
