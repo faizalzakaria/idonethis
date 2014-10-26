@@ -15,11 +15,8 @@ class Users::TasksController < Users::BaseController
 
   def new
     @task = @user.tasks.new
-    if @task.user == current_user
+    verify_task_belongs_to_user do
       respond_with(@user, @task)
-    else
-      flash[:error] = "#{params[:user_id] == current_user.id} You are not allowed to do the requested action"
-      redirect_to root_path
     end
   end
 
@@ -29,12 +26,9 @@ class Users::TasksController < Users::BaseController
 
   def create
     @task = @user.tasks.new(task_params)
-    if @task.user == current_user
+    verify_task_belongs_to_user do
       @task.save
-      redirect_to user_tasks_url(@user)
-    else
-      flash[:error] = "#{params[:user_id] == current_user.id} You are not allowed to do the requested action"
-      redirect_to root_path
+      redirect_to tasks_url
     end
   end
 
@@ -65,9 +59,11 @@ class Users::TasksController < Users::BaseController
   end
 
   def verify_task_belongs_to_user
-    unless @task.user == current_user
+    if @task.user == current_user
+      yield if block_given?
+    else
       flash[:error] = "You are not allowed to do the requested action"
-      redirect_to root_path
+      redirect_to tasks_url
     end
   end
 
