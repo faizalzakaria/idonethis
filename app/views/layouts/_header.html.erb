@@ -1,6 +1,9 @@
 <% if user_signed_in? %>
   <li class="<%= 'active' if params[:controller] == 'workouts' %>">
-    <%= link_to "tasks", tasks_path %>
+    <%= link_to "home", root_path %>
+  </li>
+  <li class="<%= 'active' if params[:controller] == 'workouts' %>">
+    <%= link_to "my tasks", user_tasks_path(current_user) %>
   </li>
 </li>
   <li class="<%= 'active' unless params[:controller].match(/devise/).nil? %>">

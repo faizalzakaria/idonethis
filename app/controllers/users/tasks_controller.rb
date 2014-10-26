@@ -1,39 +1,40 @@
-class TasksController < ApplicationController
-  before_action :authenticate_user!
+class Users::TasksController < ApplicationController
   respond_to :html
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
     respond_with(@tasks)
   end
 
   def show
-    respond_with(@task)
+    respond_with(current_user, @task)
   end
 
   def new
     @task = Task.new
-    respond_with(@task)
+    respond_with(current_user, @task)
   end
 
   def edit
+    respond_with(current_user, @task)
   end
 
   def create
     @task = Task.new(task_params)
     @task.save
-    respond_with(@task)
+    current_user.tasks << @task
+    redirect_to user_tasks_url(current_user)
   end
 
   def update
     @task.update(task_params)
-    respond_with(@task)
+    respond_with(current_user, @task)
   end
 
   def destroy
     @task.destroy
-    respond_with(@task)
+    respond_with(current_user, @task)
   end
 
   private

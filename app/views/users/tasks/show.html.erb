@@ -10,5 +10,5 @@
   <%= @task.details %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_user_task_path(current_user, @task) %> |
+<%= link_to 'Back', user_tasks_path(current_user) %>

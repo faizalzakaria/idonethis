@@ -1,4 +1,4 @@
-<%= form_for(@task) do |f| %>
+<%= form_for [current_user, @task] do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -12,11 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :details %><br>
+    <%= f.label 'What have you done that would make us proud?' %><br>
     <%= f.text_area :details %>
   </div>
   <div class="actions">
