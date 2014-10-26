@@ -1,4 +1,4 @@
-class Users::TasksController < ApplicationController
+class Users::TasksController < Users::BaseController
   respond_to :html
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
