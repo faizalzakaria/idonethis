@@ -16,4 +16,5 @@ class Task < ActiveRecord::Base
     day = Date.today - count
     Task.where("created_at >= ? AND created_at <= ?", day, day + 1)
   end
+
 end

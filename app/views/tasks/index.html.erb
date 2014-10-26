@@ -1,29 +1,32 @@
-<h1>Listing tasks</h1>
+<h1>What we have done so far?</h1>
 
+<% @tasks.each_pair do |date, tasks| %>
+
+<h3><%= "#{date} #{day_from_date(date)}" %></h3>
 <table>
   <thead>
     <tr>
       <th>User</th>
-      <th>Details</th>
-      <th>Created At</th>
+      <th>What I've done</th>
+      <th>When</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% tasks.each do |task| %>
       <tr>
-        <td><%= task.user_id %></td>
+        <td><%= task.user.username %></td>
         <td><%= task.details %></td>
         <td><%= task.created_at %></td>
-        <td><%= link_to 'Show', user_task_path(current_user, task) %></td>
-        <td><%= link_to 'Edit', edit_user_task_path(current_user, task) %></td>
-        <td><%= link_to 'Destroy', user_task_path(current_user, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_task_path(task.user_id, task) %></td>
+        <td><%= link_to 'Edit', edit_user_task_path(task.user_id, task) %></td>
+        <td><%= link_to 'Destroy', user_task_path(task.user_id, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% end %>
 <%= link_to 'New Task', new_user_task_path(current_user) %>
