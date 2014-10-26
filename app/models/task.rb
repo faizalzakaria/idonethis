@@ -10,6 +10,7 @@
 #
 
 class Task < ActiveRecord::Base
+  resourcify
   belongs_to :user
 
   def self.filter_last_n_day(count)

@@ -42,3 +42,5 @@ end
 gem 'devise'
 gem 'annotate', '~> 2.6.5'
 gem 'dotenv-deployment'
+gem 'rolify'
+gem 'cancancan', '~> 1.9'

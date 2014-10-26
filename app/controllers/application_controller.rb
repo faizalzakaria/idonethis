@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = exception.message
+    redirect_to root_url
+  end
+
   def set_user_time_zone
-    return true unless current_user
-    utc_offset = current_user.utc_offset || ENV['DEFAULT_UTC_OFFSET']
-    user_timezone = ActiveSupport::TimeZone[utc_offset] || Time.zone
-    Time.zone = user_timezone
+    tz = current_user ? current_user.timezone : nil
+    Time.zone = tz || ActiveSupport::TimeZone[ENV['DEFAULT_TIMEZONE']]
   end
 end

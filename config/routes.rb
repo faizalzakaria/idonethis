@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "tasks#index"
+  root to: "landing_pages#index"
 
   resources :tasks, only: [:index]
   resources :users, :only => [] do
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   post '/github/payload', to: 'github#payload'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
 end

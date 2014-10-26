@@ -17,9 +17,11 @@
 #  updated_at             :datetime
 #  utc_offset             :integer
 #  username               :string(255)      default("")
+#  timezone               :string(255)
 #
 
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

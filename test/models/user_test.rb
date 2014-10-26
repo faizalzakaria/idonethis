@@ -17,6 +17,7 @@
 #  updated_at             :datetime
 #  utc_offset             :integer
 #  username               :string(255)      default("")
+#  timezone               :string(255)
 #
 
 require 'test_helper'
