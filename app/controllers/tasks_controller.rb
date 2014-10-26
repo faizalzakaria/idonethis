@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   respond_to :html
   def index
     @tasks = {}
-    6.times.to_a.each_index do |i|
+    7.times.to_a.each_index do |i|
       @tasks[Date.today - i] = Task.filter_last_n_day(i).order("user_id DESC, created_at DESC")
     end
     respond_with(@tasks)
