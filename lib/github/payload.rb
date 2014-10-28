@@ -37,7 +37,7 @@ module Github
     end
 
     def commits
-      @commits = data.commits || []
+      @commits ||= data.commits || []
     end
 
     def commit_details
