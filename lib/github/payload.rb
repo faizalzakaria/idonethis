@@ -7,7 +7,7 @@ module Github
     end
 
     def generate_details
-      params = { details: commit_details }
+      params = { details: commit_details, task_date: DateTime.now }
       task = pusher.tasks.create(params) if pusher
     end
 

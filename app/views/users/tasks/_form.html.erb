@@ -15,6 +15,10 @@
     <%= f.label 'What have you done that would make us proud?' %><br>
     <%= f.text_area :details, rows: 2, cols: 60 %>
   </div>
+  <div class="field">
+    <%= f.label 'date?' %><br>
+    <%= f.datetime_select :task_date %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -12,9 +12,7 @@ if Rails.env.development?
     user.add_role(:duriana)
 
     (1..5).each do
-      task = user.tasks.create!(details: Faker::Lorem.sentence)
-      task.created_at = Faker::Time.between(2.days.ago, Time.now)
-      task.save
+      task = user.tasks.create!(details: Faker::Lorem.sentence, task_date: Faker::Time.between(2.days.ago, Time.now))
     end
   end
 end

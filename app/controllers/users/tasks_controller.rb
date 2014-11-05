@@ -71,7 +71,7 @@ class Users::TasksController < Users::BaseController
   end
 
   def task_params
-    params.require(:task).permit(:user_id, :details)
+    params.require(:task).permit(:user_id, :details, :task_date)
   end
 
 end

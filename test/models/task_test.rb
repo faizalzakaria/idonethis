@@ -7,6 +7,7 @@
 #  details    :text
 #  created_at :datetime
 #  updated_at :datetime
+#  task_date  :datetime
 #
 
 require 'test_helper'
