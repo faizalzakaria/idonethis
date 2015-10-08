@@ -1,11 +1,11 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'dotenv/deployment'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module Idonethis
   class Application < Rails::Application

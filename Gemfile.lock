@@ -48,9 +48,10 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    dotenv (1.0.2)
-    dotenv-deployment (0.2.0)
-      dotenv (~> 1.0)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
     execjs (2.2.2)
     faker (1.4.3)
@@ -145,7 +146,7 @@ DEPENDENCIES
   annotate (~> 2.6.5)
   cancancan (~> 1.9)
   devise
-  dotenv-deployment
+  dotenv-rails
   faker
   hashie
   jbuilder (~> 2.0)
