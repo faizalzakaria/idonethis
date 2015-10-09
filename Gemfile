@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem "twitter-bootstrap-rails"
+
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
@@ -29,3 +29,4 @@ gem 'cancancan', '~> 1.9'
 gem 'hashie'
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
+gem "twitter-bootstrap-rails", github: 'torstenb/twitter-bootstrap-rails'

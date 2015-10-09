@@ -5,8 +5,11 @@
                 <h1 class="cover-heading">What have you done so far?</h1>
                 <p class="lead">Tell your team mate, what have you done? And make everyone happy, especially the management</p>
                 <p class="lead">
-                    <%= link_to "Get Started", new_user_registration_path, class: "btn btn-lg btn-default" %>
-
+                    <% if current_user %>
+                        <%= link_to "Get Started !", new_user_task_path(current_user), class: "btn btn-lg btn-default" %>
+                    <% else %>
+                        <%= link_to "Get Started !", new_user_session_path, class: "btn btn-lg btn-default" %>
+                    <% end %>
                 </p>
             </div>
             <div class="mastfoot">

@@ -20,18 +20,35 @@ body {
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
+
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: top;
 }
+
 .cover-container {
   margin-right: auto;
   margin-left: auto;
 }
 
+.cover-container {
+    textarea,
+    input {
+        color: #000;
+    }
+}
+
 /* Padding for spacing */
 .inner {
   padding: 30px;
+}
+
+/*
+ * Head
+ */
+.masthead {
+    position: fixed;
+    top: 0;
 }
 
 /*
@@ -63,7 +80,6 @@ body {
  * @media (min-width: 768px) {
 */
 
-
 .mastfoot {
     position: fixed;
     bottom: 0;
@@ -81,8 +97,8 @@ body {
 
 
 @media (min-width: 992px) {
-  .mastfoot,
-  .cover-container {
-    width: 700px;
-  }
+    .mastfoot,
+    .cover-container {
+        width: 700px;
+    }
 }

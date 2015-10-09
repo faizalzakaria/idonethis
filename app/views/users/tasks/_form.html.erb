@@ -1,25 +1,35 @@
-<%= form_for [@user, @task] do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<h1>New task</h1>
 
-      <ul>
-      <% @task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for([@user, @task], html: { class: "form-vertical center" }) do |f| %>
+    
+    <% if @task.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            <h2>
+                <%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:
+            </h2>
+            <ul>
+                <% @task.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="form-group">
+        <%= f.label 'What have you done that would make us proud?', class: "control-label" %>
+        <%= f.text_area :details, rows: 10, cols: 60, class: "form-control" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label 'What have you done that would make us proud?' %><br>
-    <%= f.text_area :details, rows: 2, cols: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label 'date?' %><br>
-    <%= f.datetime_select :task_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    
+    <div class="form-group">
+        <%= f.label 'date?', class: "control-label" %>
+        <%= f.datetime_select :task_date, class: "form-control" %>
+    </div>
+    
+    <div class="col-xs-12 actions">
+        <%= f.submit "Done !", class: "btn btn-lg btn-success" %>
+    </div>
+    
 <% end %>
+

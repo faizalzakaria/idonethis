@@ -1,51 +1,52 @@
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-            <div class="inner cover">
+<div class="cover-container">
+    <div class="inner cover">
+        
+        <h1>Sign up</h1>
 
-                <h1 class="col-sm-offset-2 col-sm-10">Sign up</h1>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+                     html: { class: "form-horizontal center" }) do |f| %>
 
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-                             html: { class: "form-horizontal center" }) do |f| %>
-
-                    <%= devise_error_messages! %>
-
-                    <div class="form-group">
-                        <%= f.label :email, class: "col-sm-2 control-label" %>
-                        <div class="col-sm-10">
-                            <%= f.email_field :email, autofocus: true, class: "form-control" %>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-                        </div>
-                        <%= f.label :password, class: "col-sm-2 control-label" %>
-                        <div class="col-sm-10">
-                            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
-                        <div class="col-sm-10">
-                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <%= f.submit "Sign up", class: "btn btn-default btn-primary" %>
-                        </div>
-                    </div>
-                <% end %>
-
-                <div class="col-sm-offset-2 col-sm-10">
-                    <%= render "users/shared/links" %>
-                </div>
-
+            <% if resource.errors %>
+            <div class="alert alert-danger" role="alert">
+                <%= devise_error_messages! %>
             </div>
+            <% end %>
+
+            <div class="form-group">
+                <%= f.label :email, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+                </div>
+                <%= f.label :password, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <%= f.submit "Sign up", class: "btn btn-default btn-primary" %>
+                </div>
+            </div>
+        <% end %>
+        
+        <div class="col-sm-offset-2 col-sm-10">
+            <%= render "users/shared/links" %>
         </div>
+        
     </div>
 </div>
+

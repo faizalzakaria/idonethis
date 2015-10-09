@@ -1,12 +1,35 @@
-<div id="page">
-  <% if flash[:alert] %>
-    <p class="flash-error"><%= flash[:alert] %></p>
-  <% end %>
-  <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
-  <% if flash[:error] %>
-    <p class="flash-notice"><%= flash[:error] %></p>
-  <% end %>
+<div class="cover-container">
+    <div class="inner cover">
+        
+        <% if flash[:alert] %>
+            <div class="alert alert-warning" role="alert">
+                <p class="flash-error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Alert:</span>
+                    <%= flash[:alert] %>
+                </p>
+            </div>
+        <% end %>
+        <% if flash[:notice] %>
+            <div class="alert alert-info" role="alert">
+                <p class="flash-notice">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Notice:</span>
+                    <%= flash[:notice] %>
+                </p>
+            </div>
+        <% end %>
+        
+        <% if flash[:error] %>
+            <div class="alert alert-danger" role="alert">
+                <p class="flash-notice">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    <%= flash[:error] %>
+                </p>
+            </div>
+        <% end %>
+                
+    </div>
 </div>
 

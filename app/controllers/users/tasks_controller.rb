@@ -27,9 +27,16 @@ class Users::TasksController < Users::BaseController
   def create
     @task = @user.tasks.new(task_params)
     verify_task_belongs_to_user do
-      @task.save
-      flash[:notice] = "Successfully created the task"
-      redirect_to tasks_url
+      if @task.save
+        flash[:notice] = "Successfully created the task"
+        puts "successful"
+        redirect_to tasks_url
+      else
+        flash[:error] = "Failed to create the task"
+        flash[:alert] = "Failed to create the task"
+        flash[:notice] = "Failed to create the task"
+        redirect_to new_user_task_url
+      end
     end
   end
 

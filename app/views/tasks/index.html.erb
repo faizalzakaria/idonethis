@@ -1,32 +1,45 @@
-<h1>What we have done so far?</h1>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="container">
+            <div class="row">
+                <h1 class="cover-heading">What we have done so far?</h1>
+                <div class="col-xm-12"">
+                    <%= link_to 'New Task', new_user_task_path(current_user), class: "btn btn-lg btn-primary" %>
+                </div>
+                <br>
+                <% @tasks.each_pair do |date, tasks| %>
 
-<%= link_to 'New Task', new_user_task_path(current_user) %>
-<% @tasks.each_pair do |date, tasks| %>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <%= "#{date} #{day_from_date(date)}" %>
+                        </div>
 
-<h3><%= "#{date} #{day_from_date(date)}" %></h3>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>What I've done</th>
-      <th>When</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+                        <table class="table" style="color:#000">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">User</th>
+                                    <th class="text-center">What I've done</th>
+                                    <th class="text-center">When</th>
+                                    <th class="text-center" colspan="2"></th>
+                                </tr>
+                            </thead>
 
-  <tbody>
-    <% tasks.each do |task| %>
-      <tr>
-        <td><%= task.user.username %></td>
-        <td><%= task.details.html_safe %></td>
-        <td><%= task.task_date %></td>
-        <td><%= link_to 'Edit', edit_user_task_path(task.user_id, task) %></td>
-        <td><%= link_to 'Destroy', user_task_path(task.user_id, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% end %>
-
+                            <tbody>
+                                <% tasks.each do |task| %>
+                                    <tr>
+                                        <td class="text-center"><%= task.user.username %></td>
+                                        <td class="text-center"><%= task.details.html_safe %></td>
+                                        <td class="text-center"><%= task.task_date %></td>
+                                        <td class="text-center"><%= link_to 'Edit', edit_user_task_path(task.user_id, task) %></td>
+                                        <td class="text-center"><%= link_to 'Destroy', user_task_path(task.user_id, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
