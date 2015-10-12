@@ -30,7 +30,3 @@ gem 'hashie'
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
 gem "twitter-bootstrap-rails", github: 'torstenb/twitter-bootstrap-rails'
-
-group :production do
-  gem 'rails_12factor'
-end
