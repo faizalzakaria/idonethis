@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: tasks
-#
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  details    :text
-#  created_at :datetime
-#  updated_at :datetime
-#  task_date  :datetime
-#
-
 class Task < ActiveRecord::Base
   resourcify
   belongs_to :user

@@ -4,7 +4,8 @@ class Users::TasksController < Users::BaseController
   before_action :set_task, only: [:edit, :update, :destroy]
 
   def index
-    @tasks = @user.tasks
+    page = params[:page] || 1
+    @tasks = @user.tasks.page(page)
     respond_with(@tasks)
   end
 

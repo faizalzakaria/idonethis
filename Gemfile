@@ -23,10 +23,10 @@ group :development, :test do
 end
 
 gem 'devise'
-gem 'annotate', '~> 2.6.5'
 gem 'rolify'
 gem 'cancancan', '~> 1.9'
 gem 'hashie'
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
 gem "twitter-bootstrap-rails", github: 'torstenb/twitter-bootstrap-rails'
+gem "kaminari"

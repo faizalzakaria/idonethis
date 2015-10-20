@@ -2,7 +2,7 @@
     <div class="site-wrapper-inner">
         <div class="container">
             <div class="row">
-                
+
                 <h1 class="cover-heading">My Tasks</h1>
                 <div class="panel panel-default">
                     <table class="table" style="color:#000"">
@@ -13,7 +13,7 @@
                                 <th class="text-center" colspan="3"></th>
                             </tr>
                         </thead>
-                            
+
                         <tbody>
                             <% @tasks.each do |task| %>
                                 <tr>
@@ -27,6 +27,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                <%= paginate @tasks %>
             </div>
             <%= link_to 'New Task', new_user_task_path(current_user) %>
         </div>
