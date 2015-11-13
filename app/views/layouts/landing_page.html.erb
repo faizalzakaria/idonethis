@@ -10,14 +10,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="container">
-        <%= render 'layouts/nav' %>
-        <%= render 'layouts/flash' %>
+    <div class="site-wrapper cover-image">
+        <div class="site-wrapper-inner">
 
-        <div class="content">
+            <%= render 'layouts/nav' %>
+            <%= render 'layouts/flash' %>
             <%= yield %>
-        </div>
 
+        </div>
     </div>
 </body>
 </html>

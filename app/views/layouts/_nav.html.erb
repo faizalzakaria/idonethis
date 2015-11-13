@@ -14,23 +14,23 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li class="<%= 'active' if params[:controller] == 'tasks' %>">
+        <li class="<%= active?(/^tasks/) %>">
           <%= link_to "home", tasks_path %>
         </li>
-        <li class="<%= 'active' if params[:controller] == 'users#tasks' %>">
+        <li class="<%= active?(/^users\/tasks/) %>">
           <%= link_to "my tasks", user_tasks_path(current_user) %>
         </li>
-        <li class="<%= 'active' unless params[:controller].match(/devise/).nil? %>">
-          <%= link_to "Logout", destroy_user_session_path, :method =>'delete' %>
-        </li>
-        <li>
+        <li class="<%= active?(/^users\/registrations/) %>">
           <%= link_to "Edit profile", edit_user_registration_path %>
         </li>
+        <li class="<%= active?(/^devise/) %>">
+          <%= link_to "Logout", destroy_user_session_path, :method =>'delete' %>
+        </li>
         <% else %>
-        <li class="<%= 'active' unless params[:controller].match(/devise\/sessions/).nil? %>">
+        <li class="<%= active?(/^devise\/sessions/) %>">
           <%= link_to "Login", user_session_path %>
         </li>
-        <li class="<%= 'active' unless params[:controller].match(/users\/registrations/).nil? %>">
+        <li class="<%= active?(/^users\/registrations/) %>">
           <%= link_to "Singup", new_user_registration_path %>
         </li>
         <% end %>

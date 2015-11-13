@@ -1,36 +1,31 @@
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
-        <div class="container">
-            <div class="row">
-
-                <h1 class="cover-heading">My Tasks</h1>
-                <div class="panel panel-default">
-                    <table class="table" style="color:#000"">
-                        <thead>
-                            <tr">
-                                <th class="text-center">User</th>
-                                <th class="text-center">Details</th>
-                                <th class="text-center" colspan="3"></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <% @tasks.each do |task| %>
-                                <tr>
-                                    <td class="text-center"><%= task.user_id %></td>
-                                    <td class="text-center"><%= task.details.html_safe %></td>
-                                    <td class="text-center"><%= link_to 'Show', user_task_path(current_user, task) %></td>
-                                    <td class="text-center"><%= link_to 'Edit', edit_user_task_path(current_user, task) %></td>
-                                    <td class="text-center"><%= link_to 'Destroy', user_task_path(current_user, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                                </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                </div>
-
-                <%= paginate @tasks %>
-            </div>
-            <%= link_to 'New Task', new_user_task_path(current_user) %>
-        </div>
+<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading">My Tasks</div>
+        <table class="table" style="color:#000"">
+            <thead>
+                <tr>
+                    <th class="text-center">User</th>
+                    <th class="text-center">Details</th>
+                    <th class="text-center" colspan="3"></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% @tasks.each do |task| %>
+                    <tr>
+                        <td class="text-center"><%= task.user_id %></td>
+                        <td class="text-center"><%= task.details.html_safe %></td>
+                        <td class="text-center"><%= link_to 'Show', user_task_path(current_user, task) %></td>
+                        <td class="text-center"><%= link_to 'Edit', edit_user_task_path(current_user, task) %></td>
+                        <td class="text-center"><%= link_to 'Destroy', user_task_path(current_user, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
     </div>
+
+    <%= paginate @tasks %>
+
+    <%= link_to 'New Task', new_user_task_path(current_user) %>
 </div>
+

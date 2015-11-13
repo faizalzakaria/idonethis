@@ -1,22 +1,18 @@
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-            <div class="inner cover">
-                <h1 class="cover-heading">What have you done so far?</h1>
-                <p class="lead">Tell your team mate, what have you done? And make everyone happy, especially the management</p>
-                <p class="lead">
-                    <% if current_user %>
-                        <%= link_to "Get Started !", new_user_task_path(current_user), class: "btn btn-lg btn-default" %>
-                    <% else %>
-                        <%= link_to "Get Started !", new_user_session_path, class: "btn btn-lg btn-default" %>
-                    <% end %>
-                </p>
-            </div>
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Open Source version of IdoneThis by <a href="http://codegarage.co">CodeGarage co</a></p>.
-                </div>
-          </div>
+<div class="cover-container">
+    <div class="inner cover">
+        <h1 class="cover-heading">What have you done so far?</h1>
+        <p class="lead">Tell your team mate, what have you done? And make everyone happy, especially the management</p>
+        <p class="lead">
+            <% if current_user %>
+                <%= link_to "Get Started !", new_user_task_path(current_user), class: "btn btn-lg btn-default" %>
+            <% else %>
+                <%= link_to "Get Started !", new_user_session_path, class: "btn btn-lg btn-default" %>
+            <% end %>
+        </p>
+    </div>
+    <div class="mastfoot">
+        <div class="inner">
+            <p>Open Source version of IdoneThis by <a href="http://codegarage.co">CodeGarage co</a></p>.
         </div>
     </div>
 </div>
