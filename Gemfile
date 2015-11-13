@@ -22,6 +22,7 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'unicorn-rails'
 gem 'devise'
 gem 'rolify'
 gem 'cancancan', '~> 1.9'
